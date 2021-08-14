@@ -21,10 +21,15 @@ class PekerjaansController extends Controller
         $teknisi = Teknisi::all();
 
         if(!empty($request -> from_date)){
-            if($request -> from_date === $request -> to_date){
-                $pekerjaan = Pekerjaan::whereDate('kapan','=', $request-> from_date)->orderBy('kapan','desc')->get();
+            $from_date = $request -> from_date;
+            $to_date = $request -> to_date;
+
+            if ($to_date === "To Date") $to_date = date("Y-m-d");
+
+            if($from_date === $to_date){
+                $pekerjaan = Pekerjaan::whereDate('kapan','=', $from_date)->orderBy('kapan','desc')->get();
             } else {
-                $pekerjaan = Pekerjaan::whereBetween('kapan', array($request->from_date, $request->to_date))->orderBy('kapan', 'desc')->get();
+                $pekerjaan = Pekerjaan::whereBetween('kapan', array($from_date, $to_date))->orderBy('kapan', 'desc')->get();
             }
         } else {
             $pekerjaan = Pekerjaan::orderBy('kapan', 'desc')->get();
