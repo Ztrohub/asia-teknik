@@ -27,3 +27,7 @@ Route::get('today', 'NewController@today');
 Route::get('bayar', 'NewController@bayar');
 
 Route::get('teknisi/{id}', 'NewController@teknisi');
+
+Route::get('/teknisi', 'NewController@bikinTeknisi');
+
+Route::post('/teknisi', 'NewController@buatTeknisi');

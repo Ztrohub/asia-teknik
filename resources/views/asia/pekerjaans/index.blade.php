@@ -38,13 +38,14 @@
       </div>
       @endif
       <a class="btn btn-primary mb-3" href="{{ route('pekerjaans.create') }}">Buat Pekerjaan Baru</a>
+      <a class="btn btn-primary mb-3" href="/teknisi">Tambah Teknisi</a>
       <form action="/pekerjaans" method="GET">
       <div class="row input-daterange mb-4">
         <div class="col-md-4">
-          <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date" readonly/>
+          <input type="text" name="from_date" id="from_date" class="form-control" value="{{ old('from_date','From Date') }}" readonly/>
         </div>
         <div class="col-md-4">
-          <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date" readonly/>
+          <input type="text" name="to_date" id="to_date" class="form-control" value="{{ old('to_date','To Date') }}" readonly/>
         </div>
         <div class="col-md-4">
           <button type="submit" class="btn btn-primary">Filter</button>

@@ -11,6 +11,10 @@
   <link rel="stylesheet" href="{{ asset('/adminlte/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('/adminlte/dist/css/adminlte.min.css')}}">
+
+  <link rel="icon" href="{{ asset('/adminlte/dist/img/AdminLTELogo.png')}}" type="image/x-icon"/>
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('/css/app.css')  }}">
+
   @stack('styles')
 </head>
 <body class="hold-transition sidebar-mini">

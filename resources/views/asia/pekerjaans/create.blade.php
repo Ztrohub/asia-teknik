@@ -39,14 +39,11 @@ Daftar Pekerjaan
                 <div class="form-group">
                     <label>Teknisi</label><br>
                     <div class="ml-4">
-                    <input class="form-check-input" type="checkbox" value="1" id="1" name="teknisis_id[]">
-                    <label class="form-check-label" for="1">Eko</label>
-                    <br>
-                    <input class="form-check-input" type="checkbox" value="2" id="2" name="teknisis_id[]">
-                    <label class="form-check-label" for="2">Budi</label>
-                    <br>
-                    <input class="form-check-input" type="checkbox" value="3" id="3" name="teknisis_id[]">
-                    <label class="form-check-label" for="3">Joko</label>
+                        @foreach ($teknisi as $mytech )
+                            <input class="form-check-input" type="checkbox" value={{$mytech->id}} id={{$mytech->id}} name="teknisis_id[]">
+                            <label class="form-check-label" for={{$mytech->id}}>{{$mytech->name}}</label>
+                            <br>
+                        @endforeach
                     </div>
                 </div>
                 <div class="form-group">

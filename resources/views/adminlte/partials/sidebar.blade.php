@@ -40,24 +40,14 @@
               </p>
             </a>
             <ul class="nav nav-treeview" style="display: block;">
+              @foreach ($teknisi as $myteknisi)
               <li class="nav-item">
-                <a href="/teknisi/1" class="nav-link">
+                <a href="/teknisi/{{$myteknisi->id}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Eko</p>
+                  <p>{{$myteknisi->name}}</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/teknisi/2" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Budi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/teknisi/3" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Joko</p>
-                </a>
-              </li>
+              @endforeach
             </ul>
           </li>
         </ul>

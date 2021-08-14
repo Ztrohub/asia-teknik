@@ -17,6 +17,9 @@ class PekerjaansController extends Controller
      */
     public function index(Request $request)
     {
+        $test = $request->flash();
+        $teknisi = Teknisi::all();
+
         if(!empty($request -> from_date)){
             if($request -> from_date === $request -> to_date){
                 $pekerjaan = Pekerjaan::whereDate('kapan','=', $request-> from_date)->orderBy('kapan','desc')->get();
@@ -27,7 +30,7 @@ class PekerjaansController extends Controller
             $pekerjaan = Pekerjaan::orderBy('kapan', 'desc')->get();
         }
 
-        return view('asia.pekerjaans.index', compact('pekerjaan'));
+        return view('asia.pekerjaans.index', compact('pekerjaan', 'test', 'teknisi'));
     }
 
     /**
@@ -37,7 +40,9 @@ class PekerjaansController extends Controller
      */
     public function create()
     {
-        return view('asia.pekerjaans.create');
+        $teknisi = Teknisi::all();
+
+        return view('asia.pekerjaans.create', compact('teknisi'));
     }
 
     /**
@@ -82,9 +87,10 @@ class PekerjaansController extends Controller
      */
     public function show($id)
     {
+        $teknisi = Teknisi::all();
         $pekerjaan = Pekerjaan::find($id);
 
-        return view('asia.pekerjaans.show', compact('pekerjaan'));
+        return view('asia.pekerjaans.show', compact('pekerjaan', 'teknisi'));
     }
 
     /**
@@ -95,9 +101,10 @@ class PekerjaansController extends Controller
      */
     public function edit($id)
     {
+        $teknisi = Teknisi::all();
         $pekerjaan = Pekerjaan::find($id);
 
-        return view('asia.pekerjaans.edit', compact('pekerjaan'));
+        return view('asia.pekerjaans.edit', compact('pekerjaan', 'teknisi'));
     }
 
     /**
